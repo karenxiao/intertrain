@@ -60,7 +60,7 @@ console.log(rnd_bmt());
     // interval_a = { name: "work", s: 5,   max: 100, min: 50,  avg: 90,  randomness: 1 };
     // interval_b = { name: "rest", s: 10,  max: 15,  min: 10, avg: 12,  randomness: 1 };
     // interval_c = { name: "rest", s: 10,  max: 3,   min: 3 , avg: 3,   randomness: 1 };
-    
+
     // For Sound purposes
     last = "Baseline";
 
@@ -211,11 +211,15 @@ console.log(bout)
     {
       $("#toggle-timer").html("Continue");
       TimerRunning=false;
+      $("#nav").show();
+      $("#quitbutton").show();
     }
     else 
     {
       $("#toggle-timer").html("Pause");
       StartTimer();
+      $("#nav").hide();
+      $("#quitbutton").hide();
     }
  }
 
@@ -301,5 +305,12 @@ function PlaySound(soundObj) {
   sound.Play();
 }
 
-
+function confirmQuit()
+{
+  var r=confirm("Are you sure you want to quit?");
+  if (r==true)
+  {
+    window.location.replace("index.html");
+  }
+}
 

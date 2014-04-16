@@ -22,7 +22,7 @@
 
   <body style="background-color:rgb(51, 51, 51);">
 
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav id="nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -46,48 +46,25 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-
     <embed src="audio/beep-07.wav" autostart="false" width="0" height="0" id="beep-07" enablejavascript="true"> 
     <embed src="audio/beep-08a.wav" autostart="false" width="0" height="0" id="beep-08" enablejavascript="true">
     <embed src="audio/beep-09.wav" autostart="false" width="0" height="0" id="beep-09" enablejavascript="true">
 
     <div class="container">
       <div class="starter-template" >
-        <div  class="panel" id="timer" style="color:white; width:200px; margin:auto; background-color:rgb(51, 51, 51); border-width:0">
-          <h3 id="interval-name"></h3>
+        <div  class="panel" id="timer" style="width:200px; margin:auto; background-color:rgb(51, 51, 51); border-width:0">
+          <h3 style="color:white;" id="interval-name"></h3>
           <h1 class="panel"id="clock" style="color:rgb(51, 51, 51);"></h1>
           <p id="round"></p>
           <button id="toggle-timer"class="btn" onclick="ToggleTimer()">Start</button>
+          <p></p>
+        <a id="quitbutton" onclick="confirmQuit()" class="btn btn-danger"  style="color:rgb(51, 51, 51);">Quit</a>
         </div>
+
       </div>
 
     </div>
 
   </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>
