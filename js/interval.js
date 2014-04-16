@@ -71,18 +71,6 @@ console.log(rnd_bmt());
 
     bout = [];
 
-    
-
-
-
-
-
-
-
-
-
-
-
     timeInPeriod = 180;
     timeLeft=timeInPeriod;
 
@@ -125,9 +113,6 @@ console.log(rnd_bmt());
           timeInPeriod -= baseTime;
           break;
         }
-
-        
-
 
 
         var highTime = 0;
@@ -190,15 +175,7 @@ console.log(rnd_bmt());
     }
 
 
-
 console.log(levels)
-
-
-
-
-
-    
-
 
 console.log(bout)
     originalTimes = times.slice(0);
@@ -210,7 +187,6 @@ console.log(bout)
       // $("#round").html(curRound+ "/" + numRounds);
     });
     console.log(times);
-
 
     StopTimer();
     // StartTimer();
@@ -242,17 +218,15 @@ console.log(bout)
       StartTimer();
     }
  }
+
  function StartTimer()
  {
     TimerRunning=true;
     ContinueTimer();
-
  }
-
 
  function ContinueTimer()
  {
-
     if(TimerRunning)
     {
       window.status="Time Remaining "+Pad(mins)+":"+Pad(secs);
@@ -276,10 +250,7 @@ console.log(bout)
           if(($("#interval-name").html() != "Action Stopped") && (timeLeft > 0))
             timeLeft--;
 
-
         $("#interval-name").html(levels[timesIndex]);
-
-        
 
         if($("#interval-name").html() == "High")
         {
@@ -309,16 +280,12 @@ console.log(bout)
           $("body").css("background-color", "#1C83F5")
         }
 
-
         $("#clock").html(Pad(Math.floor(timeLeft/60)) + ":" + Pad(timeLeft%60));
       }
 
     }
-
  
  }
- 
-
  
  function Pad(number) //pads the mins/secs with a 0 if its less than 10
  {
@@ -333,17 +300,6 @@ function PlaySound(soundObj) {
   var sound = document.getElementById(soundObj);
   sound.Play();
 }
-
-
-// function playSound(soundfile) {
-//   console.log("playing");
-//   document.getElementById("dummy").innerHTML=
-//     "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
-// }
-// function doubleBeep(soundObj1, soundObj2) {
-//   PlaySound(soundObj1);
-//   window.setTimeout(PlaySound(soundObj1),5000)
-// }
 
 
 
