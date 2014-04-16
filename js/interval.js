@@ -60,6 +60,9 @@ console.log(rnd_bmt());
     // interval_a = { name: "work", s: 5,   max: 100, min: 50,  avg: 90,  randomness: 1 };
     // interval_b = { name: "rest", s: 10,  max: 15,  min: 10, avg: 12,  randomness: 1 };
     // interval_c = { name: "rest", s: 10,  max: 3,   min: 3 , avg: 3,   randomness: 1 };
+    
+    // For Sound purposes
+    last = "Baseline";
 
     h = {max: 10, min: 3,  avg: 5,  randomness: 1 };
     b = {max: 25, min: 5,  avg: 15,  randomness: 1 };
@@ -243,11 +246,13 @@ console.log(bout)
  {
     TimerRunning=true;
     ContinueTimer();
+
  }
 
 
  function ContinueTimer()
  {
+
     if(TimerRunning)
     {
       window.status="Time Remaining "+Pad(mins)+":"+Pad(secs);
@@ -274,19 +279,33 @@ console.log(bout)
 
         $("#interval-name").html(levels[timesIndex]);
 
+        
+
         if($("#interval-name").html() == "High")
         {
-          // PlaySound("beep-08");
+          if (last != "High"){
+            PlaySound("beep-08");
+            console.log(last);
+          }
+          last = "High"
           $("body").css("background-color", "#E82709")
         }
         else if($("#interval-name").html() == "Baseline")
         {
-          // PlaySound("beep-07");
+          if (last != "Baseline"){
+            PlaySound("beep-07");
+            console.log(last);
+          }
+          last = "Baseline"
           $("body").css("background-color", "#FFB713")
         }
         else
         {
-          // PlaySound("beep-09");
+          if (last != "Action Stopped"){
+            PlaySound("beep-09");
+            console.log(last);
+          }
+          last = "Action Stopped"
           $("body").css("background-color", "#1C83F5")
         }
 
@@ -315,6 +334,12 @@ function PlaySound(soundObj) {
   sound.Play();
 }
 
+
+// function playSound(soundfile) {
+//   console.log("playing");
+//   document.getElementById("dummy").innerHTML=
+//     "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+// }
 // function doubleBeep(soundObj1, soundObj2) {
 //   PlaySound(soundObj1);
 //   window.setTimeout(PlaySound(soundObj1),5000)

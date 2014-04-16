@@ -12,3 +12,13 @@ body {
 	width: 300px;
 	margin: auto;
 }
+
+#clock {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#timer {
+	padding-bottom: 15px;
+	padding-top: 1px;
+}
