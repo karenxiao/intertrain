@@ -252,12 +252,22 @@ console.log(bout)
         else
           times[timesIndex]--;
           if(($("#interval-name").html() != "Action Stopped") && (timeLeft > 0))
+          {
             timeLeft--;
+          }
+
+          if($("#interval-name").html() == "Action Stopped")
+          {
+            $(".progress").show();
+            $("#break-bar").css("width", times[timesIndex]/15 * 100 + "%");
+            console.log(times[timesIndex]);
+          }
 
         $("#interval-name").html(levels[timesIndex]);
 
         if($("#interval-name").html() == "High")
         {
+          $(".progress").hide();
           if (last != "High"){
             PlaySound("beep-08");
             console.log(last);
@@ -267,6 +277,7 @@ console.log(bout)
         }
         else if($("#interval-name").html() == "Baseline")
         {
+          $(".progress").hide();
           if (last != "Baseline"){
             PlaySound("beep-07");
             console.log(last);
@@ -282,6 +293,7 @@ console.log(bout)
           }
           last = "Action Stopped"
           $("body").css("background-color", "#1C83F5")
+          $(".progress").show();
         }
 
         $("#clock").html(Pad(Math.floor(timeLeft/60)) + ":" + Pad(timeLeft%60));
