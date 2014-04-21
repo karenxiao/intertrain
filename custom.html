@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="lib/jquery/jquery.min.js" ></script>	
+    <script src="lib/bootstrap/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+    <script>
+      // jQueryUI Touch-Punch
+      !function(a){function f(a,b){if(!(a.originalEvent.touches.length>1)){a.preventDefault();var c=a.originalEvent.changedTouches[0],d=document.createEvent("MouseEvents");d.initMouseEvent(b,!0,!0,window,1,c.screenX,c.screenY,c.clientX,c.clientY,!1,!1,!1,!1,0,null),a.target.dispatchEvent(d)}}if(a.support.touch="ontouchend"in document,a.support.touch){var e,b=a.ui.mouse.prototype,c=b._mouseInit,d=b._mouseDestroy;b._touchStart=function(a){var b=this;!e&&b._mouseCapture(a.originalEvent.changedTouches[0])&&(e=!0,b._touchMoved=!1,f(a,"mouseover"),f(a,"mousemove"),f(a,"mousedown"))},b._touchMove=function(a){e&&(this._touchMoved=!0,f(a,"mousemove"))},b._touchEnd=function(a){e&&(f(a,"mouseup"),f(a,"mouseout"),this._touchMoved||f(a,"click"),e=!1)},b._mouseInit=function(){var b=this;b.element.bind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),c.call(b)},b._mouseDestroy=function(){var b=this;b.element.unbind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),d.call(b)}}}(jQuery);
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <script>
+
+       $(function() {
+          $( "#high-average-slider" ).slider({
+            value: 10,
+            min: 0,
+            max: 20,
+            slide: function( event, ui ) {
+              $( "#high-average" ).val( ui.value + " seconds");
+              $( "#high-average" ).html( ui.value + " seconds");
+            }
+          });
+          $( "#high-average" ).val( $( "#high-average-slider" ).slider( "value" ) + " seconds");
+          $( "#high-average" ).html( $( "#high-average-slider" ).slider( "value" ) + " seconds");
+
+
+          $( "#high-next-slider" ).slider({
+            value: 50,
+            ///////////////// TODO///////////////
+            // Something like this 
+            // $( "#high-min" ).val()
+            // to make slider mad/min update with user input
+            min: 0,
+            max: 100,
+            slide: function( event, ui ) {
+              $( "#high-next-prob" ).val( ui.value + " %");
+              $( "#high-next-prob" ).html( ui.value + " %");
+            }
+          });
+          $( "#high-next-prob" ).val( $( "#high-next-slider" ).slider( "value" ) + " %");
+          $( "#high-next-prob" ).html( $( "#high-next-slider" ).slider( "value" ) + " %");
+
+          //////////////////////////////////////////////////////////////////////////////////////
+          $( "#baseline-average-slider" ).slider({
+            value: 30,
+            min: 0,
+            max: 60,
+            slide: function( event, ui ) {
+              $( "#baseline-average" ).val( ui.value + " seconds");
+              $( "#baseline-average" ).html( ui.value + " seconds");
+            }
+          });
+          $( "#baseline-average" ).val( $( "#baseline-average-slider" ).slider( "value" ) + " seconds");
+          $( "#baseline-average" ).html( $( "#baseline-average-slider" ).slider( "value" ) + " seconds");
+
+
+          $( "#baseline-next-slider" ).slider({
+            value: 50,
+            min: 0,
+            max: 100,
+            slide: function( event, ui ) {
+              $( "#baseline-next-prob" ).val( ui.value + " %");
+              $( "#baseline-next-prob" ).html( ui.value + " %");
+            }
+          });
+          $( "#baseline-next-prob" ).val( $( "#baseline-next-slider" ).slider( "value" ) + " %");
+          $( "#baseline-next-prob" ).html( $( "#baseline-next-slider" ).slider( "value" ) + " %");          
+
+
+
+        });
+        </script>
+
+
+
+</head>
+
+
+
+<body style="background-color:rgb(51, 51, 51);">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">InterTrain</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> &nbsp; Home</a></li>
+        <li><a href="history.html"><span class="glyphicon glyphicon-stats"></span> &nbsp; History</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> &nbsp; Settings</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br>
+
+<div class="container" >
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          High Intensity
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+
+      <h4>Duration</h4>
+
+        <form class="form-inline" role="form">
+          <div class="form-group pull-left">
+            <!-- <label class="sr-only" for="high-min">Email address</label> -->MIN:
+            <input type="text" class="form-control" id="high-min" placeholder="0" style="border:0; font-weight:bold; width:40px; padding:5px;"> 
+          </div>
+          <div class="form-group pull-right">
+            <!-- <label class="sr-only" for="high-max">Password</label> -->MAX:
+            <input type="text" class="form-control" id="high-max" placeholder="20" style="border:0; font-weight:bold; width:40px; padding:5px;">
+          </div>
+        </form>
+        <br>
+        <br><br>
+        <p class="float-right">
+          <label for="high-average" >Average Duration:</label>
+          <!-- <input type="text" id="high-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
+          <span id="high-average"></span>
+        </p>        
+
+        <div id="high-average-slider"></div>
+        <br>
+
+
+<!--         <h4>Distribution:</h4>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default">
+            <input type="radio" name="distribution" id="normal"> Normal
+          </label>
+          <label class="btn btn-default">
+            <input type="radio" name="distribution" id="uniform"> Uniform
+          </label>
+        </div>
+        <br> -->
+        <hr>
+      
+        <h4>Next Interval Probability:</h4>
+
+        <p class="float-right">
+          <label for="high-average" >Average Duration:</label>
+          <!-- <input type="text" id="high-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
+          <span id="high-next-prob"></span>
+        </p>        
+
+        <div id="high-next-slider"></div>
+        <br>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Baseline Intensity
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+
+      <h4>Duration</h4>
+
+        <form class="form-inline" role="form">
+          <div class="form-group pull-left">
+            <!-- <label class="sr-only" for="baseline-min">Email address</label> -->MIN:
+            <input type="text" class="form-control" id="baseline-min" placeholder="0" style="border:0; font-weight:bold; width:40px; padding:5px;"> 
+          </div>
+          <div class="form-group pull-right">
+            <!-- <label class="sr-only" for="baseline-max">Password</label> -->MAX:
+            <input type="text" class="form-control" id="baseline-max" placeholder="60" style="border:0; font-weight:bold; width:40px; padding:5px;">
+          </div>
+        </form>
+        <br>
+        <br><br>
+        <p class="float-right">
+          <label for="baseline-average" >Average Duration:</label>
+          <!-- <input type="text" id="baseline-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
+          <span id="baseline-average"></span>
+        </p>        
+
+        <div id="baseline-average-slider"></div>
+        <br>
+
+
+<!--         <h4>Distribution:</h4>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default">
+            <input type="radio" name="distribution" id="normal"> Normal
+          </label>
+          <label class="btn btn-default">
+            <input type="radio" name="distribution" id="uniform"> Uniform
+          </label>
+        </div>
+        <br> -->
+        <hr>
+      
+        <h4>Next Interval Probability:</h4>
+
+        <p class="float-right">
+          <label for="baseline-average" >Average Duration:</label>
+          <!-- <input type="text" id="baseline-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
+          <span id="baseline-next-prob"></span>
+        </p>        
+
+        <div id="baseline-next-slider"></div>
+        <br>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Rest
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod baseline life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>	
+
+</body>
+</html>
