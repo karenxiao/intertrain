@@ -45,12 +45,18 @@
             min: 0,
             max: 100,
             slide: function( event, ui ) {
-              $( "#high-next-prob" ).val( ui.value + " %");
-              $( "#high-next-prob" ).html( ui.value + " %");
+              $( "#high-next-prob-baseline" ).val( ui.value + " %");
+              $( "#high-next-prob-baseline" ).html( ui.value + " %");
+
+              $( "#high-next-prob-rest" ).val( 100 - ui.value + " %");
+              $( "#high-next-prob-rest" ).html( 100 - ui.value + " %");
             }
           });
-          $( "#high-next-prob" ).val( $( "#high-next-slider" ).slider( "value" ) + " %");
-          $( "#high-next-prob" ).html( $( "#high-next-slider" ).slider( "value" ) + " %");
+          $( "#high-next-prob-baseline" ).val( $( "#high-next-slider" ).slider( "value" ) + " %");
+          $( "#high-next-prob-baseline" ).html( $( "#high-next-slider" ).slider( "value" ) + " %");
+
+          $( "#high-next-prob-rest" ).val( 100 - $( "#high-next-slider" ).slider( "value" )  + " %");
+          $( "#high-next-prob-rest" ).html( 100 - $( "#high-next-slider" ).slider( "value" ) + " %"); 
 
           //////////////////////////////////////////////////////////////////////////////////////
           $( "#baseline-average-slider" ).slider({
@@ -71,13 +77,18 @@
             min: 0,
             max: 100,
             slide: function( event, ui ) {
-              $( "#baseline-next-prob" ).val( ui.value + " %");
-              $( "#baseline-next-prob" ).html( ui.value + " %");
+              $( "#baseline-next-prob-high" ).val( ui.value + " %");
+              $( "#baseline-next-prob-high" ).html( ui.value + " %");
+
+              $( "#baseline-next-prob-rest" ).val( 100 - ui.value + " %");
+              $( "#baseline-next-prob-rest" ).html( 100 - ui.value + " %");
             }
           });
-          $( "#baseline-next-prob" ).val( $( "#baseline-next-slider" ).slider( "value" ) + " %");
-          $( "#baseline-next-prob" ).html( $( "#baseline-next-slider" ).slider( "value" ) + " %");          
+          $( "#baseline-next-prob-high" ).val( $( "#baseline-next-slider" ).slider( "value" ) + " %");
+          $( "#baseline-next-prob-high" ).html( $( "#baseline-next-slider" ).slider( "value" ) + " %");          
 
+          $( "#baseline-next-prob-rest" ).val( 100 - $( "#baseline-next-slider" ).slider( "value" )  + " %");
+          $( "#baseline-next-prob-rest" ).html( 100 - $( "#baseline-next-slider" ).slider( "value" ) + " %");          
 
 
         });
@@ -169,9 +180,8 @@
         <h4>Next Interval Probability:</h4>
 
         <p class="float-right">
-          <label for="high-average" >Average Duration:</label>
-          <!-- <input type="text" id="high-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
-          <span id="high-next-prob"></span>
+          <span>Baseline <span id="high-next-prob-baseline"></span> </span>
+          <span class="pull-right">Rest <span id="high-next-prob-rest"></span> </span>
         </p>        
 
         <div id="high-next-slider"></div>
@@ -244,9 +254,10 @@
         <h4>Next Interval Probability:</h4>
 
         <p class="float-right">
-          <label for="baseline-average" >Average Duration:</label>
+
           <!-- <input type="text" id="baseline-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
-          <span id="baseline-next-prob"></span>
+          <span>High <span id="baseline-next-prob-high"></span> </span>
+          <span class="pull-right">Rest <span id="baseline-next-prob-rest"></span> </span>
         </p>        
 
         <div id="baseline-next-slider"></div>
