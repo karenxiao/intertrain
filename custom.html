@@ -91,6 +91,169 @@
           $( "#baseline-next-prob-rest" ).html( 100 - $( "#baseline-next-slider" ).slider( "value" ) + " %");          
 
 
+
+///////////////////////////////////////////////////////////////////////
+// // This makes the headings toggle
+          $("#highPlus").hide();
+
+//           var highToggle = true;
+
+//           $("#high-toggle").on("click", 
+//             function() {
+//               if (highToggle){
+//                 $("#highMinus").hide();
+//                 $("#highPlus").show();
+//               }
+//               else {
+//                 $("#highPlus").hide();
+//                 $("#highMinus").show();
+//               }
+//               // always changes when clicked
+//               highToggle = !highToggle;
+
+//               // if high was opened and someone else opens, close high
+//               if (highToggle) { 
+//                 baselineToggle = false;
+//                 //restToggle = false;
+//               }
+
+              
+//             }
+//           );
+
+
+          $("#baselineMinus").hide();
+
+//           var baselineToggle = false;
+
+//           $("#baseline-toggle").on("click", 
+//             function() {
+//               if (baselineToggle){
+//                 $("#baselineMinus").hide();
+//                 $("#baselinePlus").show();
+//               }
+//               else {
+//                 $("#baselinePlus").hide();
+//                 $("#baselineMinus").show();
+//               }
+//               baselineToggle = !baselineToggle;
+
+//               if (baselineToggle) {
+//                 highToggle = false;
+//                 //restToggle = false;
+//               }
+
+
+
+//               if (highToggle)
+//                 highToggle = !highToggle;
+              
+//             }
+//           );
+
+
+//           var openHigh = function() {
+
+//           }
+
+
+/*
+
+  start with high on
+  if any toggle clicked, check classes --> set glyphs based on class
+
+
+  on click of high, baseline, or rest
+    high class == collapsed?
+      +
+    else
+      -
+    .....
+
+
+
+
+
+*/
+
+// var classList =$('#divId').attr('class').split(/\s+/);
+// $.each( classList, function(index, item){
+//     if (item === 'someClass') {
+//        //do something
+//     }
+// });
+
+
+  $("#high-toggle").click(
+    function() { 
+      if( $("#high-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
+        // Was big, now make small; was -, now +
+        $("#highPlus").show();
+        $("#highMinus").hide();        
+      }
+      else {
+        $("#highPlus").hide();
+        $("#highMinus").show();
+
+        $("#baselinePlus").show();
+        $("#baselineMinus").hide(); 
+
+        $("#restPlus").show();
+        $("#restMinus").hide(); 
+      }
+    }
+  );
+
+  $("#baseline-toggle").click(
+    function() { 
+      if( $("#baseline-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
+        // Was big, now make small; was -, now +
+        $("#baselinePlus").show();
+        $("#baselineMinus").hide();        
+      }
+      else {
+        $("#baselineMinus").show();
+        $("#baselinePlus").hide();
+
+        $("#highPlus").show();
+        $("#highMinus").hide(); 
+
+        $("#restPlus").show();
+        $("#restMinus").hide(); 
+      }
+    }
+  ); 
+
+  $("#rest-toggle").click(
+    function() { 
+      if( $("#rest-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
+        // Was big, now make small; was -, now +
+        $("#restPlus").show();
+        $("#restMinus").hide();        
+      }
+      else {
+        $("#restMinus").show();
+        $("#restPlus").hide();
+
+        $("#highPlus").show();
+        $("#highMinus").hide(); 
+
+        $("#highPlus").show();
+        $("#highMinus").hide(); 
+      }
+    }
+  ); 
+
+console.log($("#high-collapse").attr("class").split(/\s+/).indexOf("in"));
+console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
+
+////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
         });
         </script>
 
@@ -106,7 +269,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="navbar-header" >
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -131,39 +294,44 @@
 <div class="container" >
 <div class="panel-group" id="accordion">
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" style="background-color:#E82709;">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          High Intensity
+        <a id= "high-toggle" data-toggle="collapse" data-parent="#accordion" href="#high-collapse">
+          High Intensity 
+          <span id="highPlus" class="glyphicon glyphicon-plus pull-right"></span> 
+          <span id="highMinus" class="glyphicon glyphicon-minus pull-right"></span>
         </a>
       </h4>
+
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
+    <div id="high-collapse" class="panel-collapse collapse in">
       <div class="panel-body">
 
-      <h4>Duration</h4>
+      <h4>Duration <small>(in seconds)</small> </h4>
 
-        <form class="form-inline" role="form">
-          <div class="form-group pull-left">
-            <!-- <label class="sr-only" for="high-min">Email address</label> -->MIN:
-            <input type="text" class="form-control" id="high-min" placeholder="0" style="border:0; font-weight:bold; width:40px; padding:5px;"> 
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="highMax" class="col-xs-2 control-label">MAX:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="highMax" placeholder="20">
+            </div>
+            <span>Maximum interval duration</span>
           </div>
-          <div class="form-group pull-right">
-            <!-- <label class="sr-only" for="high-max">Password</label> -->MAX:
-            <input type="text" class="form-control" id="high-max" placeholder="20" style="border:0; font-weight:bold; width:40px; padding:5px;">
+          <div class="form-group">
+            <label for="highMin" class="col-xs-2 control-label">MIN:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="highMin" placeholder="10">
+            </div>
+             <span>Minimum interval duration</span>
+          </div>
+          <div class="form-group">
+            <label for="highAvg" class="col-xs-2 control-label">MIN:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="highAvg" placeholder="10">
+            </div>
+             <span>Average interval duration</span>
           </div>
         </form>
-        <br>
-        <br><br>
-        <p class="float-right">
-          <label for="high-average" >Average Duration:</label>
-          <!-- <input type="text" id="high-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
-          <span id="high-average"></span>
-        </p>        
-
-        <div id="high-average-slider"></div>
-        <br>
-
 
 <!--         <h4>Distribution:</h4>
         <div class="btn-group" data-toggle="buttons">
@@ -205,38 +373,43 @@
 
 
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" style="background-color:#FFB713;">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+        <a id="baseline-toggle" data-toggle="collapse" data-parent="#accordion" href="#baseline-collapse">
           Baseline Intensity
+          <span id="baselinePlus" class="glyphicon glyphicon-plus pull-right"></span> 
+          <span id="baselineMinus" class="glyphicon glyphicon-minus pull-right"></span>
         </a>
       </h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
+    <div id="baseline-collapse" class="panel-collapse collapse">
       <div class="panel-body">
 
-      <h4>Duration</h4>
+      <h4>Duration <small>(in seconds)</small></h4>
 
-        <form class="form-inline" role="form">
-          <div class="form-group pull-left">
-            <!-- <label class="sr-only" for="baseline-min">Email address</label> -->MIN:
-            <input type="text" class="form-control" id="baseline-min" placeholder="0" style="border:0; font-weight:bold; width:40px; padding:5px;"> 
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="baselineMax" class="col-xs-2 control-label">MAX:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="baselineMax" placeholder="20">
+            </div>
+            <span>Maximum interval duration</span>
           </div>
-          <div class="form-group pull-right">
-            <!-- <label class="sr-only" for="baseline-max">Password</label> -->MAX:
-            <input type="text" class="form-control" id="baseline-max" placeholder="60" style="border:0; font-weight:bold; width:40px; padding:5px;">
+          <div class="form-group">
+            <label for="baselineMin" class="col-xs-2 control-label">MIN:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="baselineMin" placeholder="10">
+            </div>
+             <span>Minimum interval duration</span>
+          </div>
+          <div class="form-group">
+            <label for="baselineAvg" class="col-xs-2 control-label">MIN:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="baselineAvg" placeholder="10">
+            </div>
+             <span>Average interval duration</span>
           </div>
         </form>
-        <br>
-        <br><br>
-        <p class="float-right">
-          <label for="baseline-average" >Average Duration:</label>
-          <!-- <input type="text" id="baseline-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
-          <span id="baseline-average"></span>
-        </p>        
-
-        <div id="baseline-average-slider"></div>
-        <br>
 
 
 <!--         <h4>Distribution:</h4>
@@ -268,7 +441,7 @@
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" style="background-color:#1C83F5;">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
           Rest
