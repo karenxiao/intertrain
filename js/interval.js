@@ -181,7 +181,6 @@ console.log(bout)
     originalTimes = times.slice(0);
 
     $(function(){
-      $("#interval-name").html(levels[timesIndex]);
       $("#clock").html(Pad(Math.floor(timeLeft/60)) + ":" + Pad(timeLeft%60));
       
       // $("#round").html(curRound+ "/" + numRounds);
