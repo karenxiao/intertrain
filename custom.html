@@ -186,6 +186,12 @@
       });
     </script>
 
+    <style type="text/css">
+    .panel-heading {
+      padding:0;
+
+    }
+    </style>
 
 
 </head>
@@ -249,8 +255,13 @@
   <div class="panel panel-default">
     <div class="panel-heading" style="background-color:#E82709;">
       <h4 class="panel-title">
-        <a id= "high-toggle" data-toggle="collapse" data-parent="#accordion" href="#high-collapse" style="display:block;">
+<!--         <a id= "high-toggle" data-toggle="collapse" data-parent="#accordion" href="#high-collapse" style="display:block;">
           High Intensity 
+          <span id="highPlus" class="glyphicon glyphicon-plus pull-right"></span> 
+          <span id="highMinus" class="glyphicon glyphicon-minus pull-right"></span>
+        </a> -->
+        <a id= "high-toggle" data-toggle="collapse" data-parent="#accordion" href="#high-collapse" class="btn btn-danger btn-lg" style="display: table; width:100%; margin:0 auto; color:white; border-radius:0;"> 
+          <span class="pull-left">High</span>
           <span id="highPlus" class="glyphicon glyphicon-plus pull-right"></span> 
           <span id="highMinus" class="glyphicon glyphicon-minus pull-right"></span>
         </a>
@@ -328,8 +339,13 @@
   <div class="panel panel-default">
     <div class="panel-heading" style="background-color:#FFB713;">
       <h4 class="panel-title">
-        <a id="baseline-toggle" data-toggle="collapse" data-parent="#accordion" href="#baseline-collapse" style="display:block;">
-          Baseline Intensity
+<!--         <a id= "baseline-toggle" data-toggle="collapse" data-parent="#accordion" href="#baseline-collapse" style="display:block;">
+          baseline Intensity 
+          <span id="baselinePlus" class="glyphicon glyphicon-plus pull-right"></span> 
+          <span id="baselineMinus" class="glyphicon glyphicon-minus pull-right"></span>
+        </a> -->
+        <a id= "baseline-toggle" data-toggle="collapse" data-parent="#accordion" href="#baseline-collapse" class="btn btn-warning btn-lg" style="display: table; width:100%; margin:0 auto; color:white; border-radius:0;"> 
+          <span class="pull-left">Baseline</span>
           <span id="baselinePlus" class="glyphicon glyphicon-plus pull-right"></span> 
           <span id="baselineMinus" class="glyphicon glyphicon-minus pull-right"></span>
         </a>
@@ -396,8 +412,13 @@
   <div class="panel panel-default">
     <div class="panel-heading" style="background-color:#1C83F5;">
       <h4 class="panel-title">
-        <a id="rest-toggle" data-toggle="collapse" data-parent="#accordion" href="#rest-collapse" style="display:block;">
-          Rest
+<!--         <a id= "rest-toggle" data-toggle="collapse" data-parent="#accordion" href="#rest-collapse" style="display:block;">
+          rest Intensity 
+          <span id="restPlus" class="glyphicon glyphicon-plus pull-right"></span> 
+          <span id="restMinus" class="glyphicon glyphicon-minus pull-right"></span>
+        </a> -->
+        <a id= "rest-toggle" data-toggle="collapse" data-parent="#accordion" href="#rest-collapse" class="btn btn-primary btn-lg" style="display: table; width:100%; margin:0 auto; color:white; border-radius:0;"> 
+          <span class="pull-left">Rest</span>
           <span id="restPlus" class="glyphicon glyphicon-plus pull-right"></span> 
           <span id="restMinus" class="glyphicon glyphicon-minus pull-right"></span>
         </a>
