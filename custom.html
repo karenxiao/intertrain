@@ -20,242 +20,171 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <script>
+    <script>
 
-       $(function() {
-          $( "#high-average-slider" ).slider({
-            value: 10,
-            min: 0,
-            max: 20,
-            slide: function( event, ui ) {
-              $( "#high-average" ).val( ui.value + " seconds");
-              $( "#high-average" ).html( ui.value + " seconds");
-            }
-          });
-          $( "#high-average" ).val( $( "#high-average-slider" ).slider( "value" ) + " seconds");
-          $( "#high-average" ).html( $( "#high-average-slider" ).slider( "value" ) + " seconds");
-
-
-          $( "#high-next-slider" ).slider({
-            value: 50,
-            ///////////////// TODO///////////////
-            // Something like this 
-            // $( "#high-min" ).val()
-            // to make slider mad/min update with user input
-            min: 0,
-            max: 100,
-            slide: function( event, ui ) {
-              $( "#high-next-prob-baseline" ).val( ui.value + " %");
-              $( "#high-next-prob-baseline" ).html( ui.value + " %");
-
-              $( "#high-next-prob-rest" ).val( 100 - ui.value + " %");
-              $( "#high-next-prob-rest" ).html( 100 - ui.value + " %");
-            }
-          });
-          $( "#high-next-prob-baseline" ).val( $( "#high-next-slider" ).slider( "value" ) + " %");
-          $( "#high-next-prob-baseline" ).html( $( "#high-next-slider" ).slider( "value" ) + " %");
-
-          $( "#high-next-prob-rest" ).val( 100 - $( "#high-next-slider" ).slider( "value" )  + " %");
-          $( "#high-next-prob-rest" ).html( 100 - $( "#high-next-slider" ).slider( "value" ) + " %"); 
-
-          //////////////////////////////////////////////////////////////////////////////////////
-          $( "#baseline-average-slider" ).slider({
-            value: 30,
-            min: 0,
-            max: 60,
-            slide: function( event, ui ) {
-              $( "#baseline-average" ).val( ui.value + " seconds");
-              $( "#baseline-average" ).html( ui.value + " seconds");
-            }
-          });
-          $( "#baseline-average" ).val( $( "#baseline-average-slider" ).slider( "value" ) + " seconds");
-          $( "#baseline-average" ).html( $( "#baseline-average-slider" ).slider( "value" ) + " seconds");
+     $(function() {
+        // $( "#high-average-slider" ).slider({
+        //   value: 10,
+        //   min: 0,
+        //   max: 20,
+        //   slide: function( event, ui ) {
+        //     $( "#high-average" ).val( ui.value + " seconds");
+        //     $( "#high-average" ).html( ui.value + " seconds");
+        //   }
+        // });
+        // $( "#high-average" ).val( $( "#high-average-slider" ).slider( "value" ) + " seconds");
+        // $( "#high-average" ).html( $( "#high-average-slider" ).slider( "value" ) + " seconds");
 
 
-          $( "#baseline-next-slider" ).slider({
-            value: 50,
-            min: 0,
-            max: 100,
-            slide: function( event, ui ) {
-              $( "#baseline-next-prob-high" ).val( ui.value + " %");
-              $( "#baseline-next-prob-high" ).html( ui.value + " %");
+        $( "#high-next-slider" ).slider({
+          value: 50,
+          ///////////////// TODO///////////////
+          // Something like this 
+          // $( "#high-min" ).val()
+          // to make slider mad/min update with user input
+          min: 0,
+          max: 100,
+          slide: function( event, ui ) {
+            $( "#high-next-prob-baseline" ).val( ui.value + " %");
+            $( "#high-next-prob-baseline" ).html( ui.value + " %");
 
-              $( "#baseline-next-prob-rest" ).val( 100 - ui.value + " %");
-              $( "#baseline-next-prob-rest" ).html( 100 - ui.value + " %");
-            }
-          });
-          $( "#baseline-next-prob-high" ).val( $( "#baseline-next-slider" ).slider( "value" ) + " %");
-          $( "#baseline-next-prob-high" ).html( $( "#baseline-next-slider" ).slider( "value" ) + " %");          
-
-          $( "#baseline-next-prob-rest" ).val( 100 - $( "#baseline-next-slider" ).slider( "value" )  + " %");
-          $( "#baseline-next-prob-rest" ).html( 100 - $( "#baseline-next-slider" ).slider( "value" ) + " %");          
-
-
-
-///////////////////////////////////////////////////////////////////////
-// // This makes the headings toggle
-          $("#highPlus").hide();
-
-//           var highToggle = true;
-
-//           $("#high-toggle").on("click", 
-//             function() {
-//               if (highToggle){
-//                 $("#highMinus").hide();
-//                 $("#highPlus").show();
-//               }
-//               else {
-//                 $("#highPlus").hide();
-//                 $("#highMinus").show();
-//               }
-//               // always changes when clicked
-//               highToggle = !highToggle;
-
-//               // if high was opened and someone else opens, close high
-//               if (highToggle) { 
-//                 baselineToggle = false;
-//                 //restToggle = false;
-//               }
-
-              
-//             }
-//           );
-
-
-          $("#baselineMinus").hide();
-
-//           var baselineToggle = false;
-
-//           $("#baseline-toggle").on("click", 
-//             function() {
-//               if (baselineToggle){
-//                 $("#baselineMinus").hide();
-//                 $("#baselinePlus").show();
-//               }
-//               else {
-//                 $("#baselinePlus").hide();
-//                 $("#baselineMinus").show();
-//               }
-//               baselineToggle = !baselineToggle;
-
-//               if (baselineToggle) {
-//                 highToggle = false;
-//                 //restToggle = false;
-//               }
-
-
-
-//               if (highToggle)
-//                 highToggle = !highToggle;
-              
-//             }
-//           );
-
-
-//           var openHigh = function() {
-
-//           }
-
-
-/*
-
-  start with high on
-  if any toggle clicked, check classes --> set glyphs based on class
-
-
-  on click of high, baseline, or rest
-    high class == collapsed?
-      +
-    else
-      -
-    .....
-
-
-
-
-
-*/
-
-// var classList =$('#divId').attr('class').split(/\s+/);
-// $.each( classList, function(index, item){
-//     if (item === 'someClass') {
-//        //do something
-//     }
-// });
-
-
-  $("#high-toggle").click(
-    function() { 
-      if( $("#high-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
-        // Was big, now make small; was -, now +
-        $("#highPlus").show();
-        $("#highMinus").hide();        
-      }
-      else {
-        $("#highPlus").hide();
-        $("#highMinus").show();
-
-        $("#baselinePlus").show();
-        $("#baselineMinus").hide(); 
-
-        $("#restPlus").show();
-        $("#restMinus").hide(); 
-      }
-    }
-  );
-
-  $("#baseline-toggle").click(
-    function() { 
-      if( $("#baseline-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
-        // Was big, now make small; was -, now +
-        $("#baselinePlus").show();
-        $("#baselineMinus").hide();        
-      }
-      else {
-        $("#baselineMinus").show();
-        $("#baselinePlus").hide();
-
-        $("#highPlus").show();
-        $("#highMinus").hide(); 
-
-        $("#restPlus").show();
-        $("#restMinus").hide(); 
-      }
-    }
-  ); 
-
-  $("#rest-toggle").click(
-    function() { 
-      if( $("#rest-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
-        // Was big, now make small; was -, now +
-        $("#restPlus").show();
-        $("#restMinus").hide();        
-      }
-      else {
-        $("#restMinus").show();
-        $("#restPlus").hide();
-
-        $("#highPlus").show();
-        $("#highMinus").hide(); 
-
-        $("#highPlus").show();
-        $("#highMinus").hide(); 
-      }
-    }
-  ); 
-
-console.log($("#high-collapse").attr("class").split(/\s+/).indexOf("in"));
-console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
-
-////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
+            $( "#high-next-prob-rest" ).val( 100 - ui.value + " %");
+            $( "#high-next-prob-rest" ).html( 100 - ui.value + " %");
+          }
         });
-        </script>
+        $( "#high-next-prob-baseline" ).val( $( "#high-next-slider" ).slider( "value" ) + " %");
+        $( "#high-next-prob-baseline" ).html( $( "#high-next-slider" ).slider( "value" ) + " %");
+
+        $( "#high-next-prob-rest" ).val( 100 - $( "#high-next-slider" ).slider( "value" )  + " %");
+        $( "#high-next-prob-rest" ).html( 100 - $( "#high-next-slider" ).slider( "value" ) + " %"); 
+
+
+        // $( "#baseline-average-slider" ).slider({
+        //   value: 30,
+        //   min: 0,
+        //   max: 60,
+        //   slide: function( event, ui ) {
+        //     $( "#baseline-average" ).val( ui.value + " seconds");
+        //     $( "#baseline-average" ).html( ui.value + " seconds");
+        //   }
+        // });
+        // $( "#baseline-average" ).val( $( "#baseline-average-slider" ).slider( "value" ) + " seconds");
+        // $( "#baseline-average" ).html( $( "#baseline-average-slider" ).slider( "value" ) + " seconds");
+
+
+        $( "#baseline-next-slider" ).slider({
+          value: 50,
+          min: 0,
+          max: 100,
+          slide: function( event, ui ) {
+            $( "#baseline-next-prob-high" ).val( ui.value + " %");
+            $( "#baseline-next-prob-high" ).html( ui.value + " %");
+
+            $( "#baseline-next-prob-rest" ).val( 100 - ui.value + " %");
+            $( "#baseline-next-prob-rest" ).html( 100 - ui.value + " %");
+          }
+        });
+        $( "#baseline-next-prob-high" ).val( $( "#baseline-next-slider" ).slider( "value" ) + " %");
+        $( "#baseline-next-prob-high" ).html( $( "#baseline-next-slider" ).slider( "value" ) + " %");          
+
+        $( "#baseline-next-prob-rest" ).val( 100 - $( "#baseline-next-slider" ).slider( "value" )  + " %");
+        $( "#baseline-next-prob-rest" ).html( 100 - $( "#baseline-next-slider" ).slider( "value" ) + " %");          
+
+
+
+        $( "#rest-next-slider" ).slider({
+          value: 50,
+          min: 0,
+          max: 100,
+          slide: function( event, ui ) {
+            $( "#rest-next-prob-high" ).val( ui.value + " %");
+            $( "#rest-next-prob-high" ).html( ui.value + " %");
+
+            $( "#rest-next-prob-rest" ).val( 100 - ui.value + " %");
+            $( "#rest-next-prob-rest" ).html( 100 - ui.value + " %");
+          }
+        });
+        $( "#rest-next-prob-high" ).val( $( "#rest-next-slider" ).slider( "value" ) + " %");
+        $( "#rest-next-prob-high" ).html( $( "#rest-next-slider" ).slider( "value" ) + " %");          
+
+        $( "#rest-next-prob-rest" ).val( 100 - $( "#rest-next-slider" ).slider( "value" )  + " %");
+        $( "#rest-next-prob-rest" ).html( 100 - $( "#rest-next-slider" ).slider( "value" ) + " %");
+
+
+
+        ///////////////////////////////////////////////////////////////////////
+        // // This makes the headings toggle
+
+        $("#highPlus").hide();
+        $("#baselineMinus").hide();
+        $("#restMinus").hide();
+
+        $("#high-toggle").click(
+          function() { 
+            if( $("#high-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
+              // Was big, now make small; was -, now +
+              $("#highPlus").show();
+              $("#highMinus").hide();        
+            }
+            else {
+              $("#highPlus").hide();
+              $("#highMinus").show();
+
+              $("#baselinePlus").show();
+              $("#baselineMinus").hide(); 
+
+              $("#restPlus").show();
+              $("#restMinus").hide(); 
+            }
+          }
+        );
+
+        $("#baseline-toggle").click(
+          function() { 
+            if( $("#baseline-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
+              // Was big, now make small; was -, now +
+              $("#baselinePlus").show();
+              $("#baselineMinus").hide();        
+            }
+            else {
+              $("#baselineMinus").show();
+              $("#baselinePlus").hide();
+
+              $("#highPlus").show();
+              $("#highMinus").hide(); 
+
+              $("#restPlus").show();
+              $("#restMinus").hide(); 
+            }
+          }
+        ); 
+
+        $("#rest-toggle").click(
+          function() { 
+            if( $("#rest-collapse").attr("class").split(/\s+/).indexOf("in") != -1 /* it's there*/ ) {
+              // Was big, now make small; was -, now +
+              $("#restPlus").show();
+              $("#restMinus").hide();        
+            }
+            else {
+              $("#restMinus").show();
+              $("#restPlus").hide();
+
+              $("#highPlus").show();
+              $("#highMinus").hide(); 
+
+              $("#baselinePlus").show();
+              $("#baselineMinus").hide(); 
+            }
+          }
+        ); 
+
+        console.log($("#high-collapse").attr("class").split(/\s+/).indexOf("in"));
+        console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
+
+        ////////////////////////////////////////////////////////////////////////////
+      });
+    </script>
 
 
 
@@ -265,6 +194,30 @@ console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
 
 <body style="background-color:rgb(51, 51, 51);">
 
+<!-- Small modal -->
+<!-- <button class="btn btn-primary" data-toggle="modal" data-target="#next-interval-probability-definition">Small modal</button> -->
+
+<div id="next-interval-probability-definition" class="modal fade" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"> <i>Next Interval Probability</i></h4>
+      </div>
+      <div class="modal-body">
+      <blockquote style="margin-bottom:0;">
+        asfj jslkfalfaskf alsfasd akfjlkds dfjdslkf sdkf sdfdsjfljdsakfa s dfjdsklfj sf 
+        sdflkdsfldsjfld jdsklfdsjf klads ksjflksdf fksdfkldsf f dsklfdskfkdsfkl ksfsfdsfksdl kdsf k kf sf sfdslkf
+      </blockquote>
+      </div>
+<!--       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" style="margin:0 auto; display:table;">OK</button>
+      </div> -->
+    </div>
+  </div>
+</div>
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
@@ -296,7 +249,7 @@ console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
   <div class="panel panel-default">
     <div class="panel-heading" style="background-color:#E82709;">
       <h4 class="panel-title">
-        <a id= "high-toggle" data-toggle="collapse" data-parent="#accordion" href="#high-collapse">
+        <a id= "high-toggle" data-toggle="collapse" data-parent="#accordion" href="#high-collapse" style="display:block;">
           High Intensity 
           <span id="highPlus" class="glyphicon glyphicon-plus pull-right"></span> 
           <span id="highMinus" class="glyphicon glyphicon-minus pull-right"></span>
@@ -311,21 +264,21 @@ console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
 
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label for="highMax" class="col-xs-2 control-label">MAX:</label>
+            <label for="highMax" class="col-xs-2 control-label">MIN:</label>
             <div class="col-xs-3">
               <input type="text" class="form-control" id="highMax" placeholder="20">
             </div>
             <span>Maximum interval duration</span>
           </div>
           <div class="form-group">
-            <label for="highMin" class="col-xs-2 control-label">MIN:</label>
+            <label for="highMin" class="col-xs-2 control-label">MAX:</label>
             <div class="col-xs-3">
               <input type="text" class="form-control" id="highMin" placeholder="10">
             </div>
              <span>Minimum interval duration</span>
           </div>
           <div class="form-group">
-            <label for="highAvg" class="col-xs-2 control-label">MIN:</label>
+            <label for="highAvg" class="col-xs-2 control-label">AVG:</label>
             <div class="col-xs-3">
               <input type="text" class="form-control" id="highAvg" placeholder="10">
             </div>
@@ -345,7 +298,7 @@ console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
         <br> -->
         <hr>
       
-        <h4>Next Interval Probability:</h4>
+        <h4>Next Interval Probability &nbsp;<small><a data-toggle="modal" data-target="#next-interval-probability-definition"><span class="glyphicon glyphicon-info-sign"></span></a></small></h4>
 
         <p class="float-right">
           <span>Baseline <span id="high-next-prob-baseline"></span> </span>
@@ -375,7 +328,7 @@ console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
   <div class="panel panel-default">
     <div class="panel-heading" style="background-color:#FFB713;">
       <h4 class="panel-title">
-        <a id="baseline-toggle" data-toggle="collapse" data-parent="#accordion" href="#baseline-collapse">
+        <a id="baseline-toggle" data-toggle="collapse" data-parent="#accordion" href="#baseline-collapse" style="display:block;">
           Baseline Intensity
           <span id="baselinePlus" class="glyphicon glyphicon-plus pull-right"></span> 
           <span id="baselineMinus" class="glyphicon glyphicon-minus pull-right"></span>
@@ -385,25 +338,25 @@ console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
     <div id="baseline-collapse" class="panel-collapse collapse">
       <div class="panel-body">
 
-      <h4>Duration <small>(in seconds)</small></h4>
+        <h4>Duration <small>(in seconds)</small></h4>
 
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label for="baselineMax" class="col-xs-2 control-label">MAX:</label>
+            <label for="baselineMax" class="col-xs-2 control-label">MIN:</label>
             <div class="col-xs-3">
               <input type="text" class="form-control" id="baselineMax" placeholder="20">
             </div>
             <span>Maximum interval duration</span>
           </div>
           <div class="form-group">
-            <label for="baselineMin" class="col-xs-2 control-label">MIN:</label>
+            <label for="baselineMin" class="col-xs-2 control-label">MAX:</label>
             <div class="col-xs-3">
               <input type="text" class="form-control" id="baselineMin" placeholder="10">
             </div>
              <span>Minimum interval duration</span>
           </div>
           <div class="form-group">
-            <label for="baselineAvg" class="col-xs-2 control-label">MIN:</label>
+            <label for="baselineAvg" class="col-xs-2 control-label">AVG:</label>
             <div class="col-xs-3">
               <input type="text" class="form-control" id="baselineAvg" placeholder="10">
             </div>
@@ -424,7 +377,7 @@ console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
         <br> -->
         <hr>
       
-        <h4>Next Interval Probability:</h4>
+        <h4>Next Interval Probability&nbsp;<small><a data-toggle="modal" data-target="#next-interval-probability-definition"><span class="glyphicon glyphicon-info-sign"></span></a></small></h4>
 
         <p class="float-right">
 
@@ -443,14 +396,67 @@ console.log($("#baseline-collapse").attr("class").split(/\s+/).indexOf("in"));
   <div class="panel panel-default">
     <div class="panel-heading" style="background-color:#1C83F5;">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+        <a id="rest-toggle" data-toggle="collapse" data-parent="#accordion" href="#rest-collapse" style="display:block;">
           Rest
+          <span id="restPlus" class="glyphicon glyphicon-plus pull-right"></span> 
+          <span id="restMinus" class="glyphicon glyphicon-minus pull-right"></span>
         </a>
       </h4>
     </div>
-    <div id="collapseThree" class="panel-collapse collapse">
+    <div id="rest-collapse" class="panel-collapse collapse">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod baseline life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <h4>Duration <small>(in seconds)</small></h4>
+
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="restMax" class="col-xs-2 control-label">MIN:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="restMax" placeholder="20">
+            </div>
+            <span>Maximum interval duration</span>
+          </div>
+          <div class="form-group">
+            <label for="restMin" class="col-xs-2 control-label">MAX:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="restMin" placeholder="10">
+            </div>
+             <span>Minimum interval duration</span>
+          </div>
+          <div class="form-group">
+            <label for="restAvg" class="col-xs-2 control-label">AVG:</label>
+            <div class="col-xs-3">
+              <input type="text" class="form-control" id="restAvg" placeholder="10">
+            </div>
+             <span>Average interval duration</span>
+          </div>
+        </form>
+
+
+<!--         <h4>Distribution:</h4>
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default">
+            <input type="radio" name="distribution" id="normal"> Normal
+          </label>
+          <label class="btn btn-default">
+            <input type="radio" name="distribution" id="uniform"> Uniform
+          </label>
+        </div>
+        <br> -->
+        <hr>
+      
+        <h4>Next Interval Probability &nbsp;<small><a data-toggle="modal" data-target="#next-interval-probability-definition"><span class="glyphicon glyphicon-info-sign"></span></a></small></h4>
+
+        <p class="float-right">
+
+          <!-- <input type="text" id="rest-average" style="border:0; color:#f6931f; font-weight:bold; width: 30px;"> seconds -->
+          <span>High <span id="rest-next-prob-high"></span> </span>
+          <span class="pull-right">Baseline <span id="rest-next-prob-rest"></span> </span>
+        </p>        
+
+        <div id="rest-next-slider"></div>
+        <br>
+
+
       </div>
     </div>
   </div>
