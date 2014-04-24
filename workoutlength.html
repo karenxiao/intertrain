@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="lib/jquery/jquery.min.js" ></script>	
+    <script src="lib/bootstrap/bootstrap.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+    $(function(){
+      var mins = 5;
+      var secs = 0;
+
+      function pad(s) {
+        s = s%60;
+        if (s == 0)
+          $("#seconds").html("00");
+        else if (s < 10){
+          $("#seconds").html("0" + s);          
+        }
+        else
+          $("#seconds").html(s);
+      }
+      
+
+      function updateTime() {
+        $("#minutes").html(mins);
+        pad(secs);
+      }
+
+      updateTime();
+
+      $("#min-up").click(function(){
+        mins = mins + 1;
+        updateTime();
+      });
+      $("#min-down").click(function(){
+        if (mins > 0 )
+          mins = mins - 1;
+        updateTime();
+      });
+
+      $("#sec-up").click(function(){
+        secs = secs + 1;
+        updateTime();
+      });
+      $("#sec-down").click(function(){
+        if (secs > 0 )
+          secs = secs - 1;
+        updateTime();
+      });
+
+
+
+      // $("#min-up").on("mousedown touchstart", function(){
+      //   // mins = mins + 1;
+      //   // updateTime();
+
+      //   minUpID = setInterval(function(){
+      //     mins = mins + 1;
+      //     updateTime();
+      //   }, 300);
+      // });
+      // $("#min-up").on("mouseup touchend", function(){
+      //   clearInterval(minUpID);
+      // });
+
+
+      // $("#min-down").on("mousedown touchstart", function(){
+      //   if (mins > 0 )
+      //     mins = mins - 1;
+      // minDownID = setInterval(function(){
+      //   if (mins > 0 ) 
+      //     mins = mins - 1;
+
+      //     updateTime();
+      //   }, 300);
+      // });
+      // $("#min-down").on("mouseup touchend", function(){
+      //   clearInterval(minDownID);
+      // });
+
+
+
+
+      // $("#sec-up").on("mousedown touchstart", function(){
+      //   // secs = secs + 1;
+      //   // updateTime();
+
+      //   secUpID = setInterval(function(){
+      //     secs = secs + 1;
+      //     updateTime();
+      //   }, 300);
+      // });
+      // $("#sec-up").on("mouseup touchend", function(){
+      //   clearInterval(secUpID);
+      // });
+
+
+      // $("#sec-down").on("mousedown touchstart", function(){
+      //   if (secs > 0 )
+      //     secs = secs - 1;
+      // secDownID = setInterval(function(){
+      //   if (secs > 0 ) 
+      //     secs = secs - 1;
+
+      //     updateTime();
+      //   }, 300);
+      // });
+      // $("#sec-down").on("mouseup touchend", function(){
+      //   clearInterval(secDownID);
+      // });
+
+
+
+
+
+    });
+
+    </script>
+</head>
+
+
+
+<body style="background-color:rgb(51, 51, 51);">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">InterTrain</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> &nbsp; Home</a></li>
+        <li><a href="history.html"><span class="glyphicon glyphicon-stats"></span> &nbsp; History</a></li>
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-cog"></span> &nbsp; Settings</a></li> -->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container" style="color:white;">
+	
+
+      <div class="starter-template" >
+      <h1> Set Workout Length </h1>
+      
+<!-- <input type="time" name="usr_time" style="color:black;">  -->
+      <div>
+        <div class="pull-left" style="width:20%;">
+          <h2><a id="min-up" class="btn btn-default btn-sm" style="margin:0 auto;"><span class="glyphicon glyphicon-chevron-up"></span></a><br><a id="min-down" class="btn btn-default btn-sm" style="margin:0 auto;"><span class="glyphicon glyphicon-chevron-down"></span></a></h2>
+        </div>
+        <div class="pull-left"style="width:60%">
+        <br>
+        <h1><span id="minutes"></span> : <span id="seconds"></span></h1>
+        </div>
+        <div class="pull-left" style="width:20%;">
+          <h2><a id="sec-up" class="btn btn-default btn-sm" style="margin:0 auto;"><span class="glyphicon glyphicon-chevron-up"></span></a><br><a id="sec-down" class="btn btn-default btn-sm" style="margin:0 auto;"><span class="glyphicon glyphicon-chevron-down"></span></a></h2>
+        </div>
+      </div>
+      <p></p>
+      <div style="width:100%;"><a href="custom.html" class="btn btn-success btn-lg" style="display: table; width:50%; margin:0 auto;">NEXT &nbsp;<span class="glyphicon glyphicon-arrow-right"></span></a></div>
+<!-- 
+      <h2><a href="interval.html" class="btn btn-default btn-sm pull-left" style="width:20px%; margin:0 auto;">^</a><span>5</span> : <span>00</span><a href="interval.html" class="btn btn-default btn-sm pull-right" style="width:20px%; margin:0 auto;">^</a></h2>
+      <h2><a href="interval.html" class="btn btn-default btn-sm pull-left" style="width:20px%; margin:0 auto;">^</a><a href="interval.html" class="btn btn-default btn-sm pull-right" style="width:20px%; margin:0 auto;">^</a></h2> -->
+
+
+      </div>
+
+</div>	
+
+</body>
+</html>
