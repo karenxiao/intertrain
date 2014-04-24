@@ -56,85 +56,67 @@
 
 
 
-      $("#min-up").on("mousedown touchstart", function(){
-        // mins = mins + 1;
-        // updateTime();
+      // $("#min-up").on("mousedown touchstart", function(){
+      //   // mins = mins + 1;
+      //   // updateTime();
 
-        upID = setInterval(function(){
-          mins = mins + 1;
-          updateTime();
-        }, 300);
-      });
-      $("#min-up").on("mouseup touchend", function(){
-        clearInterval(upID);
-      });
-
-
-      $("#min-down").on("mousedown touchstart", function(){
-        if (mins > 0 )
-          mins = mins - 1;
-      upID = setInterval(function(){
-        if (mins > 0 ) 
-          mins = mins - 1;
-
-          updateTime();
-        }, 300);
-      });
-      $("#min-down").on("mouseup touchend", function(){
-        clearInterval(upID);
-      });
+      //   minUpID = setInterval(function(){
+      //     mins = mins + 1;
+      //     updateTime();
+      //   }, 300);
+      // });
+      // $("#min-up").on("mouseup touchend", function(){
+      //   clearInterval(minUpID);
+      // });
 
 
+      // $("#min-down").on("mousedown touchstart", function(){
+      //   if (mins > 0 )
+      //     mins = mins - 1;
+      // minDownID = setInterval(function(){
+      //   if (mins > 0 ) 
+      //     mins = mins - 1;
+
+      //     updateTime();
+      //   }, 300);
+      // });
+      // $("#min-down").on("mouseup touchend", function(){
+      //   clearInterval(minDownID);
+      // });
 
 
 
 
+      // $("#sec-up").on("mousedown touchstart", function(){
+      //   // secs = secs + 1;
+      //   // updateTime();
+
+      //   secUpID = setInterval(function(){
+      //     secs = secs + 1;
+      //     updateTime();
+      //   }, 300);
+      // });
+      // $("#sec-up").on("mouseup touchend", function(){
+      //   clearInterval(secUpID);
+      // });
+
+
+      // $("#sec-down").on("mousedown touchstart", function(){
+      //   if (secs > 0 )
+      //     secs = secs - 1;
+      // secDownID = setInterval(function(){
+      //   if (secs > 0 ) 
+      //     secs = secs - 1;
+
+      //     updateTime();
+      //   }, 300);
+      // });
+      // $("#sec-down").on("mouseup touchend", function(){
+      //   clearInterval(secDownID);
+      // });
 
 
 
-
-
-
-
-
-
-
-      $("#sec-up").on("mousedown touchstart", function(){
-        // secs = secs + 1;
-        // updateTime();
-
-        upID = setInterval(function(){
-          secs = secs + 1;
-          updateTime();
-        }, 300);
-      });
-      $("#sec-up").on("mouseup touchend", function(){
-        clearInterval(upID);
-      });
-
-
-      $("#sec-down").on("mousedown touchstart", function(){
-        if (secs > 0 )
-          secs = secs - 1;
-      upID = setInterval(function(){
-        if (secs > 0 ) 
-          secs = secs - 1;
-
-          updateTime();
-        }, 300);
-      });
-      $("#sec-down").on("mouseup touchend", function(){
-        clearInterval(upID);
-      });
-
-
-      // if (secs == 0)
-      //   $("#seconds").html("00");
-      // else if (secs < 10)
-      //   $("#seconds").html("0" + secs);
-      // else
-      //   $("#seconds").html(secs%60);
-      // // alert();
 
 
     });
