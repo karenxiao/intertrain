@@ -9,7 +9,12 @@ body {
 
 /*HISTORY*/
 #history-chart {
-	width: 300px;
+	width: 250px;
+	margin: auto;
+}
+
+.inner {
+	width: 90%;
 	margin: auto;
 }
 

@@ -1,8 +1,9 @@
+var data = JSON.parse(localStorage.getItem("history"));
+data = data || {};
 
 var mins,secs,TimerRunning,TimerID;
  TimerRunning=false;
  
-
  function rnd_bmt() {
   var x = 0, y = 0, rds, c;
 
@@ -166,18 +167,29 @@ console.log(rnd_bmt());
     times = [];
     levels = [];
 
+    total = 0;
+    var d = new Date();
+    date = d.toDateString();
+    
+    if (!(date in data))
+    {
+      data[date] = {"Baseline": 0, "High": 0, "Action Stopped": 0, "Total": 0};
+    }
+
     for(var i = 0; i < bout.length; i++)
     {
       levels.push(bout[i].name);
       // console.log(bout[i].name);
       times.push(bout[i].time);
       // console.log(bout[i].time);
+
+      data[date][bout[i].name] += bout[i].time;
+      data[date]["Total"] += bout[i].time;
     }
 
+localStorage.setItem("history", JSON.stringify(data));
 
-console.log(levels)
-
-console.log(bout)
+console.log(data[date])
     originalTimes = times.slice(0);
 
     $(function(){
