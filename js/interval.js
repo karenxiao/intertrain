@@ -156,7 +156,7 @@ console.log(rnd_bmt());
 
       }
 
-      bout.push( {name: "Action Stopped", time: 15} );
+      bout.push( {name: "Rest", time: 15} );
 
     }
 
@@ -173,7 +173,7 @@ console.log(rnd_bmt());
     
     if (!(date in data))
     {
-      data[date] = {"Baseline": 0, "High": 0, "Action Stopped": 0, "Total": 0};
+      data[date] = {"Baseline": 0, "High": 0, "Rest": 0, "Total": 0};
     }
 
     for(var i = 0; i < bout.length; i++)
@@ -262,12 +262,12 @@ console.log(data[date])
         }
         else
           times[timesIndex]--;
-          if(($("#interval-name").html() != "Action Stopped") && (timeLeft > 0))
+          if(($("#interval-name").html() != "Rest") && (timeLeft > 0))
           {
             timeLeft--;
           }
 
-          if($("#interval-name").html() == "Action Stopped")
+          if($("#interval-name").html() == "Rest")
           {
             $(".progress").show();
             $("#break-bar").css("width", times[timesIndex]/15 * 100 + "%");
@@ -298,11 +298,11 @@ console.log(data[date])
         }
         else
         {
-          if (last != "Action Stopped"){
+          if (last != "Rest"){
             PlaySound("beep-09");
             console.log(last);
           }
-          last = "Action Stopped"
+          last = "Rest"
           $("body").css("background-color", "#1C83F5")
           $(".progress").show();
         }
