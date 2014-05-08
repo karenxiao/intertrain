@@ -20,9 +20,9 @@ $(document).ready(function(){
 
   for (var i = 0; i < days; i++)
   {
-    baseline.push(data[dates[i]]["Baseline"]);
-    high.push(data[dates[i]]["High"]);
-    total.push(data[dates[i]]["Total"]);
+    baseline.push(data[dates[i]]["Baseline"]/60);
+    high.push(data[dates[i]]["High"]/60);
+    total.push(data[dates[i]]["Total"]/60);
 
   }
   console.log(data);
@@ -41,14 +41,19 @@ $(document).ready(function(){
       },
       axes: {
         xaxis: {
+          tickRenderer:$.jqplot.CanvasAxisTickRenderer,
+          autoscale: true,
           label: "Day of Week",
           // Turn off "padding".  This will allow data point to lie on the
           // edges of the grid.  Default padding is 1.2 and will keep all
           // points inside the bounds of the grid.
-          pad: 1.2
+          pad: 1.5
         },
         yaxis: {
-          // label: "Total Workout Time (min)"
+          autoscale: true,
+          tickRenderer:$.jqplot.CanvasAxisTickRenderer,
+          labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+          label: "Total Workout Time (min)"
         }
       }
     });
@@ -61,7 +66,8 @@ $(document).ready(function(){
       animateReplot: true,
       title: 'History for the Past ' + days + ' Days',
       axesDefaults: {
-        labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+        tickRenderer:$.jqplot.CanvasAxisTickRenderer
       },
       seriesDefaults: {
           rendererOptions: {
@@ -70,13 +76,18 @@ $(document).ready(function(){
       },
       axes: {
         xaxis: {
+          tickRenderer:$.jqplot.CanvasAxisTickRenderer,
+          autoscale: true,
           label: "Day of Week",
           // Turn off "padding".  This will allow data point to lie on the
           // edges of the grid.  Default padding is 1.2 and will keep all
           // points inside the bounds of the grid.
-          pad: 1.2
+          pad: 1.5,
         },
         yaxis: {
+          autoscale: true,
+          tickRenderer:$.jqplot.CanvasAxisTickRenderer,
+          labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
           label: "Total Workout Time (min)"
         }
       }
@@ -100,11 +111,13 @@ $(document).ready(function(){
       },
       axes: {
         xaxis: {
+          tickRenderer:$.jqplot.CanvasAxisTickRenderer,
+          autoscale: true,
           label: "Day of Week",
           // Turn off "padding".  This will allow data point to lie on the
           // edges of the grid.  Default padding is 1.2 and will keep all
           // points inside the bounds of the grid.
-          pad: 1.2
+          pad: 1.5
         },
         yaxis: {
           label: "Total Workout Time (min)"
@@ -130,11 +143,13 @@ $(document).ready(function(){
       },
       axes: {
         xaxis: {
+          tickRenderer:$.jqplot.CanvasAxisTickRenderer,
+          autoscale: true,
           label: "Day of Week",
           // Turn off "padding".  This will allow data point to lie on the
           // edges of the grid.  Default padding is 1.2 and will keep all
           // points inside the bounds of the grid.
-          pad: 1.2
+          pad: 1.5
         },
         yaxis: {
           label: "Total Workout Time (min)"

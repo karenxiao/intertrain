@@ -97,8 +97,8 @@
 }
 
 .jqplot-yaxis-label {
-    margin-right: 10px;
-/*    text-align: center;*/
+    margin-right: 80px;
+    text-align: center;
     font-size: 11pt;
     position: absolute;
 }
